@@ -7,11 +7,25 @@ if we cant use the cloudformation we can deploy using cloud cli AWSCLI like so.
 ## Create ECS Cluster
 1.  aws ecs create-cluster --cluster-name MyCluster
 
+    ### Create an ECR Repository:
+
     1.2 - aws ecr create-repository --repository-name my-repo
-    1.3 - aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com
+
+    ### 
+    Authenticate Docker to Your ECR Registry:
+
+    1.3 - aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.ap-southeast-2.amazonaws.com
+
+    ### Build Your Docker Image:
     1.4 - docker build -t my-repo .
+
+    ### Tag Your Docker Image:
     1.5 - docker tag my-repo:latest <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/my-repo:latest
+
+    ### Push Your Docker Image to ECR:
     1.6 - docker push <aws_account_id>.dkr.ecr.<your-region>.amazonaws.com/my-repo:latest
+
+
     (then update ecs task definition to use ecr image)
 
     ```
