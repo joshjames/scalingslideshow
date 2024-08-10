@@ -1,0 +1,13 @@
+{
+  "name": "photo-processing-worker",
+  "version": "1.0.0",
+  "description": "A worker to process photo jobs from SQS and create video slideshows",
+  "main": "worker.js",
+  "scripts": {
+    "start": "node worker.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.814.0",
+    "uuid": "^8.3.2"
+  }
+}

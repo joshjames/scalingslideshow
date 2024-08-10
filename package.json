@@ -1,0 +1,16 @@
+{
+  "name": "photo-upload-service",
+  "version": "1.0.0",
+  "description": "A service to upload photos and queue jobs for processing",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.814.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.10.0",
+    "uuid": "^8.3.2"
+  }
+}
